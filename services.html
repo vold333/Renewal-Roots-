@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three Boxes</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            width: 200px;
+            height: 300px;
+            margin: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+        }
+
+        .box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .title {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .passage {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+        }
+
+                
+        .back-video{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        @media (min-aspect-ratio:16/9) {
+            .back-video{
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        @media (max-aspect-ratio:16/9) {
+            .back-video{
+                width: auto;
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <video autoplay loop muted plays-inline class="back-video ">
+            <source src="images/earth.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <a href="#" class="box" onclick="handleButtonClick('Rescue operation')">
+        <img src="images/rescue.jpg" alt="Box 1">
+        <div class="title">Rescue operation</div>
+    </a>
+
+    <a href="#" class="box" onclick="handleButtonClick('Food service')">
+        <img src="images/food.png" alt="Box 2">
+        <div class="title">Food service</div>
+    </a>
+
+    <a href="#" class="box" onclick="handleButtonClick('Electricity check')">
+        <img src="images/elec.jpg" alt="Box 3">
+        <div class="title">Electricity check</div>
+    </a>
+
+    <div id="passage" class="passage"></div>
+
+    <script>
+        function handleButtonClick(option) {
+    var passageElement = document.getElementById('passage');
+    var passageText = '';
+
+    // Update passage text based on the selected option
+    switch (option) {
+        case 'Rescue operation':
+            passageText = 'For Rescue help Emergency call: 45248';
+            break;
+        case 'Food service':
+            passageText = 'For need of food supply Emergency call: 89248';
+            break;
+        case 'Electricity check':
+            passageText = 'For Electricity related problems Emergency call: 23624';
+            break;
+        default:
+            passageText = 'No information available.';
+    }
+
+    // Display the passage with the updated text color
+    passageElement.style.color = 'white'; // Change this to the desired color
+    passageElement.innerHTML = passageText;
+}
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helping Hands</title>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: white; /* White background color for the entire page */
+            color: #000000; /* Black text color */
+            background: url('images/kids.jpg') center/cover no-repeat fixed; /* Replace 'your-background-image.jpg' with your actual image file */
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end; /* Align items to the right */
+        }
+
+        header {
+            background-color: darkgoldenrod;
+            color: #ffffff;
+            text-align: left;
+            color: #000;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .module-row {
+            display: flex;
+            justify-content: flex-end; /* Align from right to left */
+            padding: 10px;
+            max-width: 400px; /* Limit the width of the button container */
+            margin: 0 auto; /* Center the container */
+        }
+
+        .module {
+            text-align: center;
+            padding: 15px; /* Increased padding for larger buttons */
+            background-color: transparent;
+            color: #ffffff;
+            margin-left: 40px;
+            border: none;
+            cursor: pointer;
+            flex-shrink: 0; /* Prevent button from shrinking */
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 18px; /* Increased font size for larger buttons */
+        }
+
+        .module:hover {
+            background-color: blue; /* Darker color on hover */
+            transform: scale(1.05); /* Scale up on hover */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Subtle shadow on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Renewal Roots</h1>
+    </header>
+    <div class="module-row">
+        <button class="module">Home</button>
+        <button class="module" id="loginButton">Login</button>
+        <button class="module" id="servicesButton">Services</button>
+    </div>
+
+    <script>
+        document.getElementById('loginButton').addEventListener('click', function () {
+            // Redirect to the login page
+            window.location.href = 'login.html';
+        });
+
+        document.getElementById('servicesButton').addEventListener('click', function () {
+            // Toggle the display of the services content
+            window.location.href = 'services.html';
+        });
+    </script>
+
+    <!-- Your content goes here -->
+
+</body>
+</html>
